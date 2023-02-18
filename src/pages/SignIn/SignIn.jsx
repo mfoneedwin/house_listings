@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ReactComponent as ArrowRightIcon } from '../../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../../assets/svg/visibilityIcon.svg'
+import OAuth from '../../components/OAuth/OAuth'
 
 const Signin = () => {
     // using state to manage password and form input
@@ -71,7 +72,10 @@ const Signin = () => {
                         </button>
                     </div>
                 </form>
+
                 {/* Google OAuth */}
+                <OAuth />
+
                 <Link to='/sign-up' className='registerLink'>
                     Sign up instead
                 </Link>
