@@ -33,7 +33,7 @@ const OAuth = () => {
             }
             // navigate to home page if user is login with google
             navaigate('/')
-            // Something is wrong putout and error
+            // Something is wrong put out an error
         } catch (error) {
             toast.error('Could not authorize with Google')
         }
@@ -42,7 +42,7 @@ const OAuth = () => {
     return (
         <div className='socialLogin'>
             <p>
-                Sign {location.pathname === '/sign-up' ? 'up' : 'in'}
+                Sign {location.pathname === '/sign-up' ? ' Up ' : ' In '}
                 With
             </p>
             <button className='socialIconDiv' onClick={onGoogleClick}>

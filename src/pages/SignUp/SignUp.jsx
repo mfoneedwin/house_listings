@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 import {
     getAuth,
@@ -28,10 +29,11 @@ const Signup = () => {
     const onChange = (e) => {
         SetFormData((prevState) => ({
             ...prevState,
+            // id here tagets all the id's in the formdata
             [e.target.id]: e.target.value,
         }))
     }
-
+    // Submit the form
     const onSubmit = async (e) => {
         e.preventDefault()
 
@@ -50,15 +52,16 @@ const Signup = () => {
                 displayName: name,
             })
 
-            // I dont want to change the form data state but to copy
+            // I dont want to change the form data state but to copy it by creating an object and spread across
             const formDataCopy = { ...formData }
             delete formDataCopy.password
             formDataCopy.timestamp = serverTimestamp()
 
+            // Add a new document to the collection dataBase
             await setDoc(doc(db, 'users', user.uid), formDataCopy)
             navigate('/')
         } catch (error) {
-            console.log(error)
+            toast.error('Something went wrong with registration')
         }
     }
 

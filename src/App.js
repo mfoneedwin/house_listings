@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar/Navbar'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import {
     Explore,
     ForgotPassword,
@@ -17,7 +20,11 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Explore />} />
                     <Route path='/offers' element={<Offers />} />
-                    <Route path='/profile' element={<SignIn />} />
+                    {/* Routing to the home page if not logged in by rapping the profile with the
+                    PrivateRoute */}
+                    <Route path='/profile' element={<PrivateRoute />}>
+                        <Route path='/profile' element={<Profile />} />
+                    </Route>
                     <Route path='/sign-in' element={<SignIn />} />
                     <Route path='/sign-up' element={<SignUp />} />
                     <Route
@@ -28,6 +35,8 @@ function App() {
                 {/* Navbar */}
                 <Navbar />
             </Router>
+
+            <ToastContainer />
         </>
     )
 }
