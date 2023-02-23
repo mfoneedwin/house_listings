@@ -10,6 +10,7 @@ import {
     Profile,
     SignIn,
     SignUp,
+    Category,
 } from './pages'
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Explore />} />
                     <Route path='/offers' element={<Offers />} />
+                    <Route
+                        path='/category/:categoryName'
+                        element={<Category />}
+                    />
                     {/* Routing to the home page if not logged in by rapping the profile with the
                     PrivateRoute */}
                     <Route path='/profile' element={<PrivateRoute />}>
