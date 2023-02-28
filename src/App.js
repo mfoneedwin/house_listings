@@ -11,6 +11,7 @@ import {
     SignIn,
     SignUp,
     Category,
+    CreateListing,
 } from './pages'
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                         path='/forgot-password'
                         element={<ForgotPassword />}
                     />
+                    <Route path='/create-listing' element={<CreateListing />} />
                 </Routes>
                 {/* Navbar */}
                 <Navbar />
