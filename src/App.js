@@ -12,6 +12,8 @@ import {
     SignUp,
     Category,
     CreateListing,
+    Listing,
+    Contact,
 } from './pages'
 
 function App() {
@@ -38,6 +40,14 @@ function App() {
                         element={<ForgotPassword />}
                     />
                     <Route path='/create-listing' element={<CreateListing />} />
+                    <Route
+                        path='/category/:categoryName/:listingId'
+                        element={<Listing />}
+                    />
+                    <Route
+                        path='/contact/:landloardId/'
+                        element={<Contact />}
+                    />
                 </Routes>
                 {/* Navbar */}
                 <Navbar />
